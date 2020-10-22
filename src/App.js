@@ -1,21 +1,16 @@
 import React from 'react';
 
-import {createGlobalStyle} from "styled-components";
+import {GlobalStyle} from "./Styles/GlobalStyles";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    font-family: 'Open Sans', sans-serif;
-  }
-  h1, h2, h3 {
-    font-family: 'Righteous', cursive;
-  }
-`;
+import Navbar from "./Navbar/Navbar";
+import Banner from "./Banner/Banner";
 
 const App=()=>{
   return (
     <>
-      <GlobalStyle />
-        <h3>gzfdfsgsdfgd</h3>
+        <GlobalStyle />
+        <Navbar />
+        <Banner />
     </>
   )
 }

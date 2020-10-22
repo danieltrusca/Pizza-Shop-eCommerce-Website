@@ -1,0 +1,1 @@
+export const pizzaRed = '244, 67, 54';
