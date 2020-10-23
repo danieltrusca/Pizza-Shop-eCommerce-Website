@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import {DialogContent, DialogFooter, ConfirmButton} from "../FoodDialog/FoodDialog";
+import {formatPrice} from "../Data/FoodData";
 
 const OrderStyled = styled.div`
   position: fixed;
@@ -21,12 +22,44 @@ const OrderContent = styled(DialogContent)`
   height: 100%;
 `;
 
-const Order=()=>{
+const OrderContainer=styled.div`
+    padding: 10px 0px;
+    border-bottom: 1px solid grey;
+`
+
+const OrderItem = styled.div`
+  padding: 10px 0px;
+  display: grid;
+  grid-template-columns: 20px 150px 20px 60px;
+  justify-content: space-between;
+`;
+
+
+
+const Order=({openFood, setOpenFood, orders, setOrders})=>{
     return (
         <OrderStyled>
-            <OrderContent>
-                Your order is empty!!!
-            </OrderContent>
+            {orders.length===0?(
+                <OrderContent>
+                    Your order is empty!!!
+                </OrderContent>
+            ):(
+                <OrderContent>
+                    {" "}
+                    <OrderContainer> Your Order: </OrderContainer>{" "}
+                    {orders.map((order, index)=>(
+                             <OrderContainer>
+                                 <OrderItem>
+                                     <div>1</div>
+                                     <div>{order.name}</div>
+                                     <div style={{ cursor: "pointer" }}>🗑</div>
+                                    <div>{formatPrice(order.price)}</div>
+                                 </OrderItem>
+                             </OrderContainer>
+                    ))}
+                </OrderContent>
+            )}
+            
             <DialogFooter>
                 <ConfirmButton>Checkout</ConfirmButton>
             </DialogFooter>

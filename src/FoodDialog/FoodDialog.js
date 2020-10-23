@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {FoodLabel} from "../Menu/FoodGrid";
 import {pizzaRed} from "../Styles/colors";
 import {Title} from "../Styles/title";
+import {formatPrice} from "../Data/FoodData";
 
 const Dialog = styled.div`
   width: 500px;
@@ -68,9 +69,18 @@ const DialogBannerName=styled(FoodLabel)`
     top: ${({ image }) => (image ? `100px` : `20px`)};
 `
 
-const FoodDialog=({openFood, setOpenFood})=>{
+const FoodDialog=({openFood, setOpenFood, orders, setOrders})=>{
     const close=()=>{
         setOpenFood();
+    }
+
+    const order={
+      ...openFood
+    }
+
+    const addToOrder=()=>{
+        setOrders([...orders, order]);
+        close();
     }
     return (
         openFood?(
@@ -84,7 +94,8 @@ const FoodDialog=({openFood, setOpenFood})=>{
 
                     </DialogContent>
                     <DialogFooter>
-                        <ConfirmButton>Add to order</ConfirmButton>
+                        <ConfirmButton onClick={addToOrder}>Add to order:  {formatPrice(openFood.price)}
+                        </ConfirmButton>
                     </DialogFooter>
                 </Dialog>
             </>
