@@ -9,7 +9,7 @@ const MenuStyled=styled.div`
     margin: 0 400px 60px 20px;
 `
 
-const Menu=()=>{
+const Menu=({setOpenFood})=>{
     return(
         <MenuStyled>
             {/* key => sectionName */}
@@ -19,7 +19,9 @@ const Menu=()=>{
                     <SectionName>{sectionName}</SectionName>
                     <FoodGrid>
                         {foods.map((item)=>(
-                            <Food image={item.image} key={item.name}>
+                            <Food image={item.image} key={item.name} 
+                                onClick={() => {setOpenFood(item);
+                            }}>
                                 <FoodLabel>
                                     <div>{item.name}</div>
                                 </FoodLabel>

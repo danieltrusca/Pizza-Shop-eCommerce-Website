@@ -13,7 +13,7 @@ const NavbarStyled=styled.div`
     justify-content: space-between;
     width: 100%;
     height: 49px;
-    background-color: rgb(${pizzaRed});
+    background-color: ${pizzaRed};
     padding: 10px;
     box-sizing: border-box;
     z-index: 999;
