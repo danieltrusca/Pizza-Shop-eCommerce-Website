@@ -4,6 +4,7 @@ import {GlobalStyle} from "./Styles/GlobalStyles";
 
 import Navbar from "./Navbar/Navbar";
 import Banner from "./Banner/Banner";
+import Menu from "./Menu/Menu";
 
 const App=()=>{
   return (
@@ -11,6 +12,7 @@ const App=()=>{
         <GlobalStyle />
         <Navbar />
         <Banner />
+        <Menu />
     </>
   )
 }
